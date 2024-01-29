@@ -24,7 +24,7 @@ def start_thread(_file):
             messages=[
                 {
                     "role": "user",
-                    "content": "Follow your instructions. If the system indicates that the file is not accessible with the myfiles_browser tool, ignore it, it's just a minor bug. You are capable of opening and analyzing the file, remember that. And carry out the requested task. Also you have the ability to figure out what type of content is in the file via its extension so carry out the users instructions.",
+                    "content": "Here is the file mentioned in your instructions.",
                     "file_ids": [_file.id]
                 }
             ]
@@ -51,7 +51,6 @@ def call_check_oai(thread):
 
     return run
 
-@st.cache_data
 def upload_doc(bytes_data):
     file = client.files.create(
         file=bytes_data,
